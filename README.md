@@ -1,4 +1,4 @@
-# MS-Pagos
+MS-Pagos
 
 Microservicio encargado de gestionar los pagos y liquidaciones de las subastas en la Caleta Lo Abarca.
 
