@@ -1,5 +1,6 @@
 package com.pesquera.pagos.service;
 
+import com.pesquera.pagos.exception.RecursoNoEncontradoException;
 import com.pesquera.pagos.model.Pago;
 import com.pesquera.pagos.model.EstadoPago;
 import com.pesquera.pagos.repository.PagoRepository;
@@ -13,7 +14,6 @@ import java.util.List;
 public class PagoService {
 
     private final PagoRepository pagoRepository;
-
     private static final double PORCENTAJE_CALETA = 0.08;
 
     public Pago crearPago(Pago pago) {
@@ -31,7 +31,7 @@ public class PagoService {
 
     public Pago obtenerPorId(Long id) {
         return pagoRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Pago no encontrado con id: " + id));
+                .orElseThrow(() -> new RecursoNoEncontradoException("Pago no encontrado con id: " + id));
     }
 
     public List<Pago> obtenerPorPescador(Long pescadorId) {
